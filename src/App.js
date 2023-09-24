@@ -7,7 +7,7 @@ function App() {
 
     useEffect(() => {
         const fetchTest = async () => {
-            const response = await fetch("http://127.0.0.1:5000/");
+            const response = await fetch("http://127.0.0.1:5000/api");
             const data = await response.json();
             console.log(data);
             setData(data.message);
