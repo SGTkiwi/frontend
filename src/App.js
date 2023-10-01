@@ -1,37 +1,38 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useEffect, useState } from "react";
+import {Link, Route, Routes} from 'react-router-dom';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import Jobs from "./components/jobpage/Jobs";
+import { Apple } from "@mui/icons-material";
+import Application from "./components/applicationpage/Application";
+import Profile from "./components/profilepage/Profile";
+
 
 function App() {
-    const [data, setData] = useState(null);
-
-    useEffect(() => {
-        const fetchTest = async () => {
-            const response = await fetch("http://127.0.0.1:5000/api");
-            const data = await response.json();
-            console.log(data);
-            setData(data.message);
-        };
-        fetchTest();
-    }, []);
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <h1>{data}</h1>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
-        </div>
+        <>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/">Jobs</Link>
+                    </li>
+                    <li>
+                        <Link to="/application">Application</Link>
+                    </li>
+                    <li>
+                        <Link to="/profile">Profile</Link>
+                    </li>
+                </ul>
+            </nav>
+            <Routes>
+                <Route path="/" element={<Jobs/>} />
+                <Route path="/application" element={<Application/>} />
+                <Route path="/profile" element={<Profile/>} />
+            </Routes>
+        </>
     );
 }
 
