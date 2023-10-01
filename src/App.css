@@ -12,6 +12,13 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+/* App.css */
+.website-container {
+  width: 1440px;
+  height: 1024px;
+  margin: 0 auto; /* Center the container horizontally on the page */
+  overflow: hidden; /* Optional: Hide content overflowing the fixed size */
+}
 
 .App-header {
   background-color: #282c34;
