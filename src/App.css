@@ -6,6 +6,17 @@
   height: 40vmin;
   pointer-events: none;
 }
+/* In your CSS or SCSS file */
+.selected-button {
+  font-weight: bold;
+  text-decoration: underline;
+}
+/* In your CSS or SCSS file */
+.website-container .selected-link {
+  font-weight: bold;      /* Make text bold */
+  text-decoration: underline; /* Underline text */
+  /* Add any other styles you want for selected links */
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
