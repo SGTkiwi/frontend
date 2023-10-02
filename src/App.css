@@ -26,7 +26,7 @@
 /* App.css */
 .website-container {
   width: 1920px;
-  height: 1024px;
+  height: 1080px;
   margin: 0 auto; /* Center the container horizontally on the page */
   overflow: hidden; /* Optional: Hide content overflowing the fixed size */
 }
