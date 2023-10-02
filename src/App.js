@@ -13,65 +13,27 @@ import { AppBar, Button, Container, Toolbar } from "@mui/material";
 import { useState } from "react";
 import Logo from "./resources/images/LogoNavBar";
 import CV from "./components/cvpage/cv";
+import Footer from "./components/Footer";
+import Navigationbar from "./components/Navigationbar";
 
 function App() {
-  const location = useLocation();
 
-  const isButtonActive = (path) => {
-    return location.pathname === path;
-  };
 
   return (
-    <Container maxWidth={false} className="website-container" sx={{maxWidth:1440}}>
-      <AppBar
-        position="static"
-        sx={{ background: "transparent", boxShadow: "none", paddingTop: 4, margin: "0 auto",}}
-      >
-        <Container maxWidth={false}>
-          <Toolbar>
-            <Logo />
-            <Button
-              sx={{ ml:8,textTransform:"none",fontSize:20, fontFamily:"Poppins", color: "#484640" }}
-              component={NavLink}
-              to="/"
-              className={isButtonActive("/") ? "selected-link" : ""}
-            >
-              Jobs
-            </Button>
-            <Button
-              sx={{ ml:3,textTransform:"none", fontSize: 20, fontFamily: "Poppins", color: "#484640" }}
-              component={NavLink}
-              to="/application"
-              className={isButtonActive("/application") ? "selected-link" : ""}
-            >
-              Applications
-            </Button>
-            <Button
-              sx={{ ml:3,textTransform:"none", fontSize: 20, fontFamily: "Poppins", color: "#484640" }}
-              component={NavLink}
-              to="/cv"
-              className={isButtonActive("/cv") ? "selected-link" : ""}
-            
-            >
-              CVs
-            </Button>
-            <Button
-              sx={{ textTransform:"none", marginLeft:"auto", fontSize: 20, fontFamily: "Poppins", color: "#484640" }}
-              component={NavLink}
-              to="/profile"
-              className={isButtonActive("/profile") ? "selected-link" : ""}
-            >
-              Profile
-            </Button>
-          </Toolbar>
-        </Container>
-      </AppBar>
+    <Container
+      maxWidth={false}
+      className="website-container"
+      sx={{ maxWidth: 1440 }}
+    >
+      <Navigationbar />
+
       <Routes>
         <Route path="/" element={<Jobs />} />
         <Route path="/application" element={<Application />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/cv" element={<CV/>} />
+        <Route path="/cv" element={<CV />} />
       </Routes>
+      <Footer />
     </Container>
   );
 }
