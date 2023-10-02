@@ -11,32 +11,27 @@ import Application from "./components/applicationpage/Application";
 import Profile from "./components/profilepage/Profile";
 import { AppBar, Button, Container, Toolbar } from "@mui/material";
 import { useState } from "react";
+import Logo from "./resources/images/LogoNavBar";
+import CV from "./components/cvpage/cv";
 
 function App() {
-  const [selectedButton, setSelectedButton] = useState(false);
-
-  const handleButton = () => {
-    setSelectedButton((prevButton) => !prevButton);
-  };
   const location = useLocation();
 
   const isButtonActive = (path) => {
     return location.pathname === path;
   };
-  const selectedLinkStyles = {
-    fontWeight: "bold", // Make text bold
-    textDecoration: "underline", // Underline text
-  };
+
   return (
-    <Container className="website-container">
+    <Container maxWidth={false} className="website-container" sx={{maxWidth:1440}}>
       <AppBar
         position="static"
-        sx={{ background: "transparent", boxShadow: "none" }}
+        sx={{ background: "transparent", boxShadow: "none", paddingTop: 4, margin: "0 auto",}}
       >
-        <Container>
+        <Container maxWidth={false}>
           <Toolbar>
+            <Logo />
             <Button
-              sx={{ textTransform:"none",fontSize:20, fontFamily:"Poppins", color: "#484640" }}
+              sx={{ ml:8,textTransform:"none",fontSize:20, fontFamily:"Poppins", color: "#484640" }}
               component={NavLink}
               to="/"
               className={isButtonActive("/") ? "selected-link" : ""}
@@ -44,7 +39,7 @@ function App() {
               Jobs
             </Button>
             <Button
-              sx={{ textTransform:"none", fontSize: 20, fontFamily: "Poppins", color: "#484640" }}
+              sx={{ ml:3,textTransform:"none", fontSize: 20, fontFamily: "Poppins", color: "#484640" }}
               component={NavLink}
               to="/application"
               className={isButtonActive("/application") ? "selected-link" : ""}
@@ -52,7 +47,16 @@ function App() {
               Applications
             </Button>
             <Button
-              sx={{ textTransform:"none", ml:80, fontSize: 20, fontFamily: "Poppins", color: "#484640" }}
+              sx={{ ml:3,textTransform:"none", fontSize: 20, fontFamily: "Poppins", color: "#484640" }}
+              component={NavLink}
+              to="/cv"
+              className={isButtonActive("/cv") ? "selected-link" : ""}
+            
+            >
+              CVs
+            </Button>
+            <Button
+              sx={{ textTransform:"none", marginLeft:"auto", fontSize: 20, fontFamily: "Poppins", color: "#484640" }}
               component={NavLink}
               to="/profile"
               className={isButtonActive("/profile") ? "selected-link" : ""}
@@ -66,6 +70,7 @@ function App() {
         <Route path="/" element={<Jobs />} />
         <Route path="/application" element={<Application />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/cv" element={<CV/>} />
       </Routes>
     </Container>
   );

@@ -1,7 +1,7 @@
 const Jobs = () => {
   return (
     <>
-      <h1>Jobs</h1>
+      <h1 style={{ textAlign: "center" }}>Jobs</h1>
     </>
   );
 }

@@ -1,7 +1,7 @@
 const Application = () => {
   return (
     <>
-      <h1>Application</h1>
+      <h1 style={{ textAlign: "center" }}>Application</h1>
     </>
   );
 }
